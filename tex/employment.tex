@@ -1,0 +1,41 @@
+\newcommand*\showempentry[2]{\cventry#1{}{}{\begin{compactitem}#2\end{compactitem}}}
+\DefineCategorisedSection{employmenthist}{Employment History}{\showempentry}{\item}
+
+\newemploymenthist{consultant}{
+    {2018 - Present}
+    {Engineering Consultant}
+    {}
+}{
+	\employmenthistitem{linux}{%
+    Porting embedded linux applications to the NetComm Bovine platform.}
+}
+
+\newemploymenthist{kti.sysadmin}{
+    {2015 - 2019}
+    {Systems Administrator}
+    {KTI~Pty~Ltd}
+}{%
+	\employmenthistitem{softwaredev,python}{%
+    Developed an integrated laser engraving utility using python, PyQt5, PyTest and SQLAlchemy.}
+
+	\employmenthistitem{sysadmin}{%
+    Contributed towards development of several in house software applications including the premesis's intranet, webERP and product testing utilities.}
+
+	\employmenthistitem{sysadmin}{%
+    Setup and maintained many internal services including BIND-DNS, multi-gateway failover system (OpenWRT), OpenProject management software, WebERP accounting package and FreeIPA centralised authentication server.}
+	
+	\employmenthistitem{sysadmin}{%
+    Managed on site VM environments including XenServer, VirtualBox, VMWare and Docker.}
+	
+}
+
+\newemploymenthist{kti.processworker}{{2011 - 2015}{Process Worker}{KTI~Pty~Ltd}}{
+	\employmenthistitem{manufacturing}{%
+    Product serial number assignment and laser engraving.}
+	
+	\employmenthistitem{manufacturing}{%
+    Soldering through hole components and component leads.}
+	
+	\employmenthistitem{manufacturing}{%
+    Battery pack tab welding, bottle fly-cutting, waterproof testing.}
+}

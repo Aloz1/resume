@@ -1,0 +1,54 @@
+\newcommand*\theeduentry[2]{\docventry#1{#2}}
+\newcommand*\docventry[4]{%
+    \cventry{#1}{#2}{}{}{\hfill#3}{\begin{compactitem}#4\end{compactitem}}%
+}
+\DefineCategorisedSection{edu}{Education and Qualifications}{\theeduentry}{\item}
+
+\newedu{swin.beng}{
+    {2015 - Present}
+    {\parbox[t]{0.456\textwidth}{BEng(Electronics \& Computer systems) (Hons)\\BCompSci}}
+    {Swinburne University}
+}{
+    \eduitem{electronics,maths}{Analog circuit design, focusing on discrete transistors, amplifiers and filters.}
+    \eduitem{electronics,maths}{Digital circuit design, both with descrete parts and FPGAs}
+    \eduitem{electronics,maths}{Signal processing using MATLAB and Simulink}
+    \eduitem{electronics}{Operation of test equipment, including DSOs, Logic Analysers and VNAs}
+    \eduitem{electronics,programming}{Embedded microcontroller programming, Freescale ARM Coretex M4}
+    \eduitem{programming}{Unit testing and Agile/SCRUM}
+}
+
+\newedu{swin.unilink}{%
+    {2014}%
+    {Diploma of Engineering (Unilink)}%
+    {Swinburne University}
+}{
+    \eduitem{maths}{Engineering mathematics}
+    \eduitem{maths,electronics}{Basic circuit theory}
+    \eduitem{cad}{AutoCAD}
+}
+
+\newedu{upwey.idm}{%
+    {2011 - 2012}%
+    {Cert III - Interactive Digital Media}%
+    {Upwey High School}
+}{
+    \eduitem{upwery,diploma}{HTML, CSS, Javascript}
+    \eduitem{upwery,diploma}{Adobe Flash and ActionScript}
+}
+
+\newedu{electrotech}{%
+    {2012 - 2013}%
+    {Cert II - Integrated Technologies}%
+    {St Josephs College}
+}{
+    \eduitem{wireless}{Basic wireless communications using IR and 433MHz modules.}
+    \eduitem{power}{Power generation}
+}
+
+%\newedu{upwey.vce}{%
+%    {2012 - 2013}%
+%    {VCE}%
+%    {Upwey High School}
+%}{
+%    \eduitem{upwery,certificate}{a}
+%}

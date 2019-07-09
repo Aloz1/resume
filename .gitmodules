@@ -1,0 +1,3 @@
+[submodule "private"]
+	path = private
+	url = https://github.com/Aloz1/resume-private

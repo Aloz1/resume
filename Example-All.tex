@@ -1,0 +1,31 @@
+\documentclass[style=alstyle, color=Firebrick4]{komacv}
+
+\input{tex/header}
+\input{tex/education}
+\input{tex/employment}
+\input{tex/other}
+\input{tex/referees}
+\input{tex/skills}
+
+\alcvappendpdf[pages=-]{extras/Unofficial-Transcript-Jun_2019.pdf}
+
+\begin{document}
+    \maketitle
+	\careerobjective{a software engineering opportunity complete my degree}{%
+		Through my degree, I have gained knowledge in several areas, including embedded systems programming (bare metal, RTOS, embedded Linux), general programming practices and idioms, signal processing, basic analog and digital circuit design theory.
+        My prior work place has given me a large amount of experience with Linux, virtualized environments, network infrastructure, and general systems maintenance.
+        Finally, having spent time with the Swinburne Cyber Security Club, and participating in a number of CTF's (including CySCA 2017 \& 2018), I feel I have a unique perspective on problem solving.}
+	
+	\showallemploymenthist
+    \showalledu
+	\showkeyskills
+	\showprojects
+
+    \showtechnicalskills
+    \showaccomplishments
+    \showmemberships
+    \showpasttimes
+	
+	\alcvallreferees
+	
+\end{document}
