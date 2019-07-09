@@ -3,12 +3,12 @@
 
 \RequirePackage{
     afterpage,
-	etoolbox,
-	hyperref,
-	pdfpages,
-	scrbase,
-	scrlayer-scrpage,
-	xparse
+    etoolbox,
+    hyperref,
+    pdfpages,
+    scrbase,
+    scrlayer-scrpage,
+    xparse
 }
 \RequirePackage{komacv-classic}
 
@@ -80,16 +80,16 @@
 
 % General commands
 \providecommand*\httpslink[2][]{%
-	\ifstrempty{#1}{%
-		\href{https://#2}{\usefontofkomafont{httplinkfont}#2}}{%
-		\href{https://#2}{\usefontofkomafont{httplinkfont}#1}}%
+    \ifstrempty{#1}{%
+        \href{https://#2}{\usefontofkomafont{httplinkfont}#2}}{%
+        \href{https://#2}{\usefontofkomafont{httplinkfont}#1}}%
 }
 
 % Add the ability to append PDFs to the end of the CV
 \newcommand*\alcvappendpdf[2][]{%
-	\AtEndDocument{%
-		\includepdf[#1]{#2}
-	}%
+    \AtEndDocument{%
+        \includepdf[#1]{#2}
+    }%
 }
 
 % Focuses specifically on the immediate objectives I wish for my career. More focused on 
@@ -97,48 +97,48 @@
 % students/recent graduates, and when switching careers, or when moving up the ladder into
 % a different roll (i.e. management).
 \newcommand*{\careerobjective}[2]{%
-	\section{Career Objective}% A quick spiel going over my goals/objectives for the next 5 years.
-	\raggedright Electronics Engineering and Computer Science student seeking \ifstrempty{#1}{{\bfseries\emph{<a generic job description, e.g. grad based embedded firmware engineering position>}}}{#1}. \ifstrempty{#2}{{\bfseries\emph{<generic short list of relevant skills, 3 to 4. e.g. embedded software and VHDL design experience, as well as analytical and problem solving skills>}}}{#2}
+    \section{Career Objective}% A quick spiel going over my goals/objectives for the next 5 years.
+    \raggedright Electronics Engineering and Computer Science student seeking \ifstrempty{#1}{{\bfseries\emph{<a generic job description, e.g. grad based embedded firmware engineering position>}}}{#1}. \ifstrempty{#2}{{\bfseries\emph{<generic short list of relevant skills, 3 to 4. e.g. embedded software and VHDL design experience, as well as analytical and problem solving skills>}}}{#2}
 }
 
 % Focuses on experience and knowledge that has already been gained from the same, or similar
 % roll at a different company or sector. Typically used to show you already have all relevant
 % knowledge from past experience working in the same field.
 \newcommand{\profesionalprofile}[1]{%
-	\section{Professional Profile}
-	#1
+    \section{Professional Profile}
+    #1
 }
 
 % An item with a filled in circle.
 \newcommand*\alcvlistitm[2][2\@afterelementsvspace]{%
-	\cvitem[#1]{\textcolor{colortheme}{\CircSteel}}{%
-		\begin{minipage}[t]{.95\@listitemmaincolwidth}%
-			#2%
-		\end{minipage}%
-	}%
+    \cvitem[#1]{\textcolor{colortheme}{\CircSteel}}{%
+        \begin{minipage}[t]{.95\@listitemmaincolwidth}%
+            #2%
+        \end{minipage}%
+    }%
 }
 
 %%% Referees %%%
 \newcommand*\alcvnewreferee[7]{%
-	\makeatletter
-	\expandafter\def\csname alcvref@#1\endcsname{\cventry{#2}{#3}{#4}{#5}{#6}{#7}}
-	\edef\alcvref@all{\ifcsdef{alcvref@all}{\alcvref@all,}{}#1}
-	\makeatother
+    \makeatletter
+    \expandafter\def\csname alcvref@#1\endcsname{\cventry{#2}{#3}{#4}{#5}{#6}{#7}}
+    \edef\alcvref@all{\ifcsdef{alcvref@all}{\alcvref@all,}{}#1}
+    \makeatother
 }
 
 \newcommand*\alcvreferees[1]{%
-	\renewcommand*\do[1]{%
-		\ifcsdef%
-		{alcvref@##1}%
-		{\csname alcvref@##1\endcsname}%
-		{\PackageError%
-			{komacv-alstyle}%
-			{The referee (##1) could not be found}%
-			{Try declaring your referee with the \alcvnewreferee command}%
-		}%
-	}
-	\section{Referees}
-	\docsvlist{#1}
+    \renewcommand*\do[1]{%
+        \ifcsdef%
+        {alcvref@##1}%
+        {\csname alcvref@##1\endcsname}%
+        {\PackageError%
+            {komacv-alstyle}%
+            {The referee (##1) could not be found}%
+            {Try declaring your referee with the \alcvnewreferee command}%
+        }%
+    }
+    \section{Referees}
+    \docsvlist{#1}
 }
 
 \newcommand*\alcvallreferees{\expandafter\alcvreferees\expandafter{\alcvref@all}}
@@ -149,69 +149,69 @@
 \def\dolisttocsv#1{#1,}
 
 \newcommand*\DefineCategorisedSection[4]{
-	\expandafter\def\csname all#1entries\endcsname{\forlistcsloop{\dolisttocsv}{entryall@#1}}
-	\expandafter\def\csname all#1keys\endcsname{\forlistcsloop{\dolisttocsv}{itemkeyall@#1}}
-	\expandafter\def\csname new#1\endcsname{\@newsectionentry{#1}}
-	\expandafter\def\csname show#1\endcsname{\@showsection{#1}{#2}}
+    \expandafter\def\csname all#1entries\endcsname{\forlistcsloop{\dolisttocsv}{entryall@#1}}
+    \expandafter\def\csname all#1keys\endcsname{\forlistcsloop{\dolisttocsv}{itemkeyall@#1}}
+    \expandafter\def\csname new#1\endcsname{\@newsectionentry{#1}}
+    \expandafter\def\csname show#1\endcsname{\@showsection{#1}{#2}}
     \expandafter\def\csname showall#1\endcsname{%
         \@showsection{#1}{#2}{\csname all#1entries\endcsname}{\csname all#1keys\endcsname}
     }
     % Internal things, shouldn't be called externally.
-	\expandafter\def\csname showentry@#1\endcsname{#3}
-	\expandafter\def\csname showitem@#1\endcsname{#4}
+    \expandafter\def\csname showentry@#1\endcsname{#3}
+    \expandafter\def\csname showitem@#1\endcsname{#4}
 }
 
 \long\def\@newsectionentry#1#2#3#4{% section-key, entry-key, entry-head-data, entry-items
-	\ifcsdef{entryhead@#1@#2}{%
-		\PackageError{komacv-alstyle}{%
-			The #1 entry (#2) already exists}{%
-			Please remove the extra #1 entry definition and try again}}{}%
-	\setcounter{@item@count}{1}%
-	\listcsgadd{entryall@#1}{#2}%
-	\expandafter\def\csname entryhead@#1@#2\endcsname{#3}%
-	\expandafter\def\csname #1item\endcsname{\@sectionentryitem{#1}{#2}}%
-	#4
-	\expandafter\let\csname #1item\endcsname\undefined%
+    \ifcsdef{entryhead@#1@#2}{%
+        \PackageError{komacv-alstyle}{%
+            The #1 entry (#2) already exists}{%
+            Please remove the extra #1 entry definition and try again}}{}%
+    \setcounter{@item@count}{1}%
+    \listcsgadd{entryall@#1}{#2}%
+    \expandafter\def\csname entryhead@#1@#2\endcsname{#3}%
+    \expandafter\def\csname #1item\endcsname{\@sectionentryitem{#1}{#2}}%
+    #4
+    \expandafter\let\csname #1item\endcsname\undefined%
 }
 \def\@sectionentryitem#1#2#3#4{% section-key, entry-key, item-keys, item-data
-	\expandafter\def\csname item@#1@#2@\Alph{@item@count}\endcsname{#4}
-	\forcsvlist{\@appenditemid{#1}{#2}}{#3}
-	\stepcounter{@item@count}
+    \expandafter\def\csname item@#1@#2@\Alph{@item@count}\endcsname{#4}
+    \forcsvlist{\@appenditemid{#1}{#2}}{#3}
+    \stepcounter{@item@count}
 }
 \def\@appenditemid#1#2#3{% section-key, entry-key, item-key
-	\ifinlistcs{#3}{itemkeyall@#1}{}{\listcsgadd{itemkeyall@#1}{#3}}
-	\listcsxadd{itemkeyitems@#1@#2@#3}{\Alph{@item@count}}
+    \ifinlistcs{#3}{itemkeyall@#1}{}{\listcsgadd{itemkeyall@#1}{#3}}
+    \listcsxadd{itemkeyitems@#1@#2@#3}{\Alph{@item@count}}
 }
 % section-key, section title, entry-keys, item-keys
 \def\@showsection#1#2#3#4{%
-	\edef\@entrykeys{#3}%
-	\edef\@itemkeys{#4}%
-	\section{#2}
-	\edef\@tmpfor{\noexpand\forcsvlist{\noexpand\@doentry{#1}{\@itemkeys}}{\@entrykeys}}
-	\@tmpfor
+    \edef\@entrykeys{#3}%
+    \edef\@itemkeys{#4}%
+    \section{#2}
+    \edef\@tmpfor{\noexpand\forcsvlist{\noexpand\@doentry{#1}{\@itemkeys}}{\@entrykeys}}
+    \@tmpfor
     \expandafter\let\csname shownitems@#1\endcsname\relax
 }
 % section-key, item-keys, entry-key
 \def\@doentry#1#2#3{%
-	\ifstrempty{#3}{}{
-		\ifcsdef{entryhead@#1@#3}{%
+    \ifstrempty{#3}{}{
+        \ifcsdef{entryhead@#1@#3}{%
             \edef\@expand{\csexpandonce{showentry@#1}{\csexpandonce{entryhead@#1@#3}}}
             \expandafter\@expand\expandafter{\forcsvlist{\@doitemkeys{#1}{#3}}{#2}}
-		}{\PackageWarning{komacv-alstyle}{Could not find category (#3)}}
-	}
+        }{\PackageWarning{komacv-alstyle}{Could not find category (#3)}}
+    }
 }
 % section-key, entry-key, item-key
 \def\@doitemkeys#1#2#3{
-	\ifcsdef{itemkeyitems@#1@#2@#3}{%
-		\forlistcsloop{\@doitem{#1}{#2}}{itemkeyitems@#1@#2@#3}}{}
+    \ifcsdef{itemkeyitems@#1@#2@#3}{%
+        \forlistcsloop{\@doitem{#1}{#2}}{itemkeyitems@#1@#2@#3}}{}
 }
 
 % section-key, entry-key, item-id
 \def\@doitem#1#2#3{
-	%\errmessage{(@#1@#2@#3) \csmeaning{item@#1@#2@#3}}
-	\def\@tmpcmd{\csname showitem@#1\endcsname}
-	\ifinlistcs{#2@#3}{shownitems@#1}{}{%
-		\listcsgadd{shownitems@#1}{#2@#3}%
-		\expandafter\@tmpcmd\expandafter{\csname item@#1@#2@#3\endcsname}
-	}
+    %\errmessage{(@#1@#2@#3) \csmeaning{item@#1@#2@#3}}
+    \def\@tmpcmd{\csname showitem@#1\endcsname}
+    \ifinlistcs{#2@#3}{shownitems@#1}{}{%
+        \listcsgadd{shownitems@#1}{#2@#3}%
+        \expandafter\@tmpcmd\expandafter{\csname item@#1@#2@#3\endcsname}
+    }
 }
