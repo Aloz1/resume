@@ -121,7 +121,7 @@
 %%% Referees %%%
 \newcommand*\alcvnewreferee[7]{%
     \makeatletter
-    \expandafter\def\csname alcvref@#1\endcsname{\cventry{#2}{#3}{#4}{#5}{#6}{#7}}
+    \csdef{alcvref@#1}{\cventry{#2}{#3}{#4}{#5}{#6}{#7}}
     \edef\alcvref@all{\ifcsdef{alcvref@all}{\alcvref@all,}{}#1}
     \makeatother
 }
@@ -149,16 +149,16 @@
 \def\dolisttocsv#1{#1,}
 
 \newcommand*\DefineCategorisedSection[4]{
-    \expandafter\def\csname all#1entries\endcsname{\forlistcsloop{\dolisttocsv}{entryall@#1}}
-    \expandafter\def\csname all#1keys\endcsname{\forlistcsloop{\dolisttocsv}{itemkeyall@#1}}
-    \expandafter\def\csname new#1\endcsname{\@newsectionentry{#1}}
-    \expandafter\def\csname show#1\endcsname{\@showsection{#1}{#2}}
-    \expandafter\def\csname showall#1\endcsname{%
-        \@showsection{#1}{#2}{\csname all#1entries\endcsname}{\csname all#1keys\endcsname}
+    \csdef{all#1entries}{\forlistcsloop{\dolisttocsv}{entryall@#1}}
+    \csdef{all#1keys}{\forlistcsloop{\dolisttocsv}{itemkeyall@#1}}
+    \csdef{new#1}{\@newsectionentry{#1}}
+    \csdef{show#1}{\@showsection{#1}{#2}}
+    \csdef{showall#1}{%
+        \@showsection{#1}{#2}{\csuse{all#1entries}}{\csuse{all#1keys}}
     }
     % Internal things, shouldn't be called externally.
-    \expandafter\def\csname showentry@#1\endcsname{#3}
-    \expandafter\def\csname showitem@#1\endcsname{#4}
+    \csdef{showentry@#1}{#3}
+    \csdef{showitem@#1}{#4}
 }
 
 \long\def\@newsectionentry#1#2#3#4{% section-key, entry-key, entry-head-data, entry-items
@@ -168,13 +168,13 @@
             Please remove the extra #1 entry definition and try again}}{}%
     \setcounter{@item@count}{1}%
     \listcsgadd{entryall@#1}{#2}%
-    \expandafter\def\csname entryhead@#1@#2\endcsname{#3}%
-    \expandafter\def\csname #1item\endcsname{\@sectionentryitem{#1}{#2}}%
+    \csdef{entryhead@#1@#2}{#3}%
+    \csdef{#1item}{\@sectionentryitem{#1}{#2}}%
     #4
-    \expandafter\let\csname #1item\endcsname\undefined%
+    \cslet{#1item}{\undefined}%
 }
 \def\@sectionentryitem#1#2#3#4{% section-key, entry-key, item-keys, item-data
-    \expandafter\def\csname item@#1@#2@\Alph{@item@count}\endcsname{#4}
+    \csdef{item@#1@#2@\Alph{@item@count}}{#4}
     \forcsvlist{\@appenditemid{#1}{#2}}{#3}
     \stepcounter{@item@count}
 }
@@ -189,29 +189,35 @@
     \section{#2}
     \edef\@tmpfor{\noexpand\forcsvlist{\noexpand\@doentry{#1}{\@itemkeys}}{\@entrykeys}}
     \@tmpfor
-    \expandafter\let\csname shownitems@#1\endcsname\relax
-}
-% section-key, item-keys, entry-key
-\def\@doentry#1#2#3{%
-    \ifstrempty{#3}{}{
-        \ifcsdef{entryhead@#1@#3}{%
-            \edef\@expand{\csexpandonce{showentry@#1}{\csexpandonce{entryhead@#1@#3}}}
-            \expandafter\@expand\expandafter{\forcsvlist{\@doitemkeys{#1}{#3}}{#2}}
-        }{\PackageWarning{komacv-alstyle}{Could not find category (#3)}}
-    }
-}
-% section-key, entry-key, item-key
-\def\@doitemkeys#1#2#3{
-    \ifcsdef{itemkeyitems@#1@#2@#3}{%
-        \forlistcsloop{\@doitem{#1}{#2}}{itemkeyitems@#1@#2@#3}}{}
+    \cslet{shownitems@#1}\relax
 }
 
+% section-key, item-keys, entry-key
+\def\@doentry#1#2#3{%
+    \ifstrempty{#3}{}{%
+        \ifcsdef{entryhead@#1@#3}{%
+            \edef\@expand{\csexpandonce{showentry@#1}{\csexpandonce{entryhead@#1@#3}}}%
+            \expandafter\@expand\expandafter{\forcsvlist{\@doitemkeys{#1}{#3}}{#2}}%
+        }{\PackageWarning{komacv-alstyle}{Could not find category (#3)}}%
+    }%
+}
+% section-key, entry-key, item-key
+\def\@doitemkeys#1#2#3{%
+    \ifcsdef{itemkeyitems@#1@#2@#3}{%
+        \forlistcsloop{\@doitem{#1}{#2}}{itemkeyitems@#1@#2@#3}}{}%
+}
 % section-key, entry-key, item-id
-\def\@doitem#1#2#3{
-    %\errmessage{(@#1@#2@#3) \csmeaning{item@#1@#2@#3}}
-    \def\@tmpcmd{\csname showitem@#1\endcsname}
+\def\@doitem#1#2#3{%
     \ifinlistcs{#2@#3}{shownitems@#1}{}{%
         \listcsgadd{shownitems@#1}{#2@#3}%
-        \expandafter\@tmpcmd\expandafter{\csname item@#1@#2@#3\endcsname}
-    }
+        \csuse{showitem@#1}{\csexpandonce{item@#1@#2@#3}}%
+    }%
+}
+
+\newrobustcmd{\ifrobustblank}{%
+    \ifblank
+}
+
+\newrobustcmd{\xifrobustblank}[1]{%
+    \expandafter\ifblank\expandafter{#1}
 }
