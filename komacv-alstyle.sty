@@ -191,16 +191,25 @@
     \@tmpfor
     \cslet{shownitems@#1}\relax
 }
-
 % section-key, item-keys, entry-key
 \def\@doentry#1#2#3{%
     \ifstrempty{#3}{}{%
         \ifcsdef{entryhead@#1@#3}{%
-            \edef\@expand{\csexpandonce{showentry@#1}{\csexpandonce{entryhead@#1@#3}}}%
-            \expandafter\@expand\expandafter{\forcsvlist{\@doitemkeys{#1}{#3}}{#2}}%
+            \if@entryitemkeys{#1@#3}{#2}{
+                \edef\@expand{\csexpandonce{showentry@#1}{\csexpandonce{entryhead@#1@#3}}}%
+                \expandafter\@expand\expandafter{\forcsvlist{\@doitemkeys{#1}{#3}}{#2}}%
+            }{}
         }{\PackageWarning{komacv-alstyle}{Could not find category (#3)}}%
     }%
 }
+\def\if@entryitemkeys#1#2{%
+    \providetoggle{@hasitemkey}%
+    \togglefalse{@hasitemkey}%
+    \forcsvlist{\@itemkeydef{#1}}{#2}%
+    \iftoggle{@hasitemkey}
+}
+\def\@itemkeydef#1#2{\ifcsdef{itemkeyitems@#1@#2}{\toggletrue{@hasitemkey}}{}}
+
 % section-key, entry-key, item-key
 \def\@doitemkeys#1#2#3{%
     \ifcsdef{itemkeyitems@#1@#2@#3}{%
@@ -212,12 +221,4 @@
         \listcsgadd{shownitems@#1}{#2@#3}%
         \csuse{showitem@#1}{\csexpandonce{item@#1@#2@#3}}%
     }%
-}
-
-\newrobustcmd{\ifrobustblank}{%
-    \ifblank
-}
-
-\newrobustcmd{\xifrobustblank}[1]{%
-    \expandafter\ifblank\expandafter{#1}
 }
