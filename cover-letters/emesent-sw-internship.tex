@@ -1,0 +1,56 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*2\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thankyou for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{%
+        Emesent            \\
+        1 Technology Court \\
+        Pullenvale, QLD 4069}
+        \opening{To whom it may concern,}
+        I am writing to apply for the position of Software~Engineering~Intern at Emesent, as advertised on LinkedIn. I am a final year student of an electronic engineering and computer science double bachelors degree at Swinburne University of Technology. I believe that the knowledge I have gained during my time at Swinburne, along with prior experience from a systems administration role, make me an ideal candidate for the opportunity.
+
+        Through past employments and pursuit of my degree at Swinburne, I have acquired a number of relevant skills and experiences. I have developed for a number of embedded Linux platforms including Netcomm's Bovine, and Raspbian. As part of university projects, I have also had hands on experience with IMUs, GPS and live video streaming using GStreamer/RTSP, and have just completed a unit on classical control systems. In my previous position at KTI, I also had hands on experience with developing a PyQt based laser engraving utility for production purposes.
+
+        Given the opportunity, I would be thrilled at prospect of contributing towards Emesent's technology whilst also expanding my mathematical and technical abilities into the realm of 3D and LiDAR mapping. As such, I would welcome the opportunity to learn more about Emesent and to provide further insight into my abilities.
+
+        Thank you for having the time to consider my credentials for this position, I look forward to hearing from you in due course.
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}

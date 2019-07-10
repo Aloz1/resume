@@ -23,16 +23,22 @@
 
 \newcommand*\showprojects{
     \section{Projects}
+    \cventry{2019}{Computer vision based bus passenger tracker}{}{}{}{
+        Prototype software for tracking passengers as they enter and leave a bus.
+        \vskip .5em
+        \begin{compactitem}
+            \item Utilises Raspberry Pi's and Intel Movidius Nural Compute Sticks for tracking.
+            \item Configuration app with live video streaming via GStreamer RTSP.
+        \end{compactitem}
+    }\vskip .5em
     \cventry{2019}{IoT Vehicle tracking system}{}{}{\hfill\httpslink{github.com/Aloz1/iot-report}}{
         A proof of concept IoT vehicle tracking system with wireless BLE nodes and cloud data storage.
         \vskip .5em
         \begin{compactitem}
-        \item Includes an ESP32 based GPS node and an Arduino based IMU node with BLE GATT
-              communications to an edge device (raspberry pi).
-        \item Edge device utilises Redis data caching, for intermittent internet connectivity.
-        \item Communications between edge and cloud is via MQTT, with data stored in DynamoDB.
-        \item Firmware for nodes written in C++, edge services written in Python, web client uses
-              a combination of Python, javascript and HTML, the report is written in \LaTeX.
+            \item Includes an ESP32 based GPS node and an Arduino based IMU node with BLE GATT communications to an edge device (raspberry pi).
+            \item Edge device utilises Redis data caching, for intermittent internet connectivity.
+            \item Communications between edge and cloud is via MQTT, with data stored in DynamoDB.
+            \item Firmware for nodes written in C++, edge services written in Python, web client uses a combination of Python, javascript and HTML, the report is written in \LaTeX.
         \end{compactitem}
     }\vskip .5em
     \cventry{2018}{Zynq Space Invaders}{}{}{\hfill\httpslink{github.com/Aloz1/Zybo-SpaceInvaders}}{
@@ -40,11 +46,10 @@
         to build a small space invaders clone.
         \vskip .5em
         \begin{compactitem}
-        \item Custom FPGA logic for direct communications with a PlayStation controller.
-        \item Designed such that each space invader operates in their own thread/task to demonstrate
-              concurrency and task scheduling.
-        \item FPGA logic developed with VHDL and Vivado block designer.
-        \item Space invaders game written in C++ and is designed to run on top of FreeRTOS.
+            \item Custom FPGA logic for direct communications with a PlayStation controller.
+            \item Designed such that each space invader operates in their own thread/task to demonstrate concurrency and task scheduling.
+            \item FPGA logic developed with VHDL and Vivado block designer.
+            \item Space invaders game written in C++ and is designed to run on top of FreeRTOS.
         \end{compactitem}
     }\vskip .5em
 }
