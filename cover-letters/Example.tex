@@ -1,0 +1,54 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\textwidth}{\dimexpr\textheight+\baselineskip*2\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid cantidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thankyou for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{3em}
+    \addtoplength{toaddrhpos}{1.5em}
+    \setplength{sigbeforevskip}{1em}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{{\color{red}%
+        Hiring manager name \\
+        Company name        \\
+        Unit addr (or rmve) \\
+        Street address      \\
+        City, STATE, zipcode}}
+
+        \opening{Dear {\color{red}Title. surname},}
+
+        I'm writing to apply for the position of Embedded~Software~Engineer at Silicon~Labs~Australia, as advertised on your website careers page and LinkedIn. I am a soon to be graduated elecronics engineering and computer science student who believes they'd make a good cantidate for the role.
+
+        Thank you for having the time to consider my credentials for this position.
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}

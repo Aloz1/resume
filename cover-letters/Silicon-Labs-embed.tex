@@ -1,0 +1,59 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\textwidth}{\dimexpr\textheight+\baselineskip*2\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thankyou for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{3em}
+    \addtoplength{toaddrhpos}{1.5em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{%
+        Shanice Chan           \\
+        Silicon Labs Australia \\
+        Level 9                \\
+        191 Clarence Street    \\
+        Sydney, NSW 2000}
+        \opening{Dear Ms. Chan,}
+        I am writing to apply for the position of Embedded~Software~Engineer at Silicon~Labs~Australia, as advertised on your website careers page. I am a final year student of an electronic engineering and computer science double degree at Swinburne University of Technology. I believe that the knowledge I have gained during my time at Swinburne, along with experience from past work places, makes me an ideal candidate for the opportunity.
+
+        While pursuing my degree at Swinburne, I have developed skills and practical experience with resource-constrained embedded environments, such as bare metal programming of ARM Cortex M0 and M4 microcontrollers and FreeRTOS application development with Xilinx FPGAs. Additionally, I have used a range of simulation and testing facilities including software unit testing, SPICE circuit simulation and QEmu based embedded ARM system simulation. Through personal interest at university, I have also gained experience with BLE, and assembly level programming and reverse engineering.
+
+        My time as a Systems Administrator at KTI Pty Ltd has also been valuable, allowing me to deepen my knowledge of Networking and IP based protocols, as well as giving me industry experience in programming. In this workplace, I was not only responsible for maintaining a high level of reliability for internal services, but also for developing and enhancing a number of in house utilities written in languages such as C++, C\#, and Python.
+        
+        It would be a pleasure to learn more about Silicon Labs' needs, and I would welcome the chance to provide further insight into my technical abilities and personal attributes.
+
+        Thank you for having the time to consider my credentials for this position, I look forward to hearing from you in the near future.
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}
