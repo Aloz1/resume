@@ -1,6 +1,6 @@
 \newcommand*\theeduentry[2]{\docventry#1{#2}}
 \newcommand*\docventry[4]{%
-    \cventry{#1}{#2}{}{}{\hfill#3}{\begin{compactitem}#4\end{compactitem}}%
+\cventry{#1}{#2}{}{}{\hfill#3}{\begin{compactitem}#4\end{compactitem}}%
 }
 \DefineCategorisedSection{edu}{Education and Qualifications}{\theeduentry}{\item}
 
@@ -9,11 +9,12 @@
     {\parbox[t]{0.456\textwidth}{BEng(Electronics \& Computer systems) (Hons)\\BCompSci}}
     {Swinburne University}
 }{
-    \eduitem{electronics,maths}{Analog circuit design, focusing on discrete transistors, amplifiers and filters.}
-    \eduitem{electronics,maths}{Digital circuit design, both with descrete parts and FPGAs}
-    \eduitem{electronics,maths}{Signal processing using MATLAB and Simulink}
+    \eduitem{electronics,circuits,maths}{Analog circuit design, focusing on discrete transistors, amplifiers and filters.}
+    \eduitem{electronics,circuits,maths}{Digital circuit design, both with descrete parts and FPGAs}
+    \eduitem{electronics,simulation}{MutliSim and LTspice circuit simulation}
+    \eduitem{maths,simulation}{Signal processing using MATLAB and Simulink}
     \eduitem{electronics}{Operation of test equipment, including DSOs, Logic Analysers and VNAs}
-    \eduitem{electronics,programming}{Embedded microcontroller programming, Freescale ARM Coretex M4}
+    \eduitem{electronics,embedded,programming}{Embedded microcontroller programming, Freescale ARM Coretex M4}
     \eduitem{programming}{Unit testing and Agile/SCRUM}
 }
 
@@ -45,10 +46,10 @@
     \eduitem{power}{Power generation}
 }
 
-%\newedu{upwey.vce}{%
-%    {2012 - 2013}%
-%    {VCE}%
-%    {Upwey High School}
-%}{
-%    \eduitem{upwery,certificate}{a}
-%}
+\newedu{upwey.vce}{
+    {2012 - 2013}
+    {VCE}
+    {Upwey High School}
+}{
+    \eduitem{certificate}{asdf}
+}

@@ -95,10 +95,11 @@
 % Focuses specifically on the immediate objectives I wish for my career. More focused on 
 % the future than the past. Generally used when you have less experience, so best for
 % students/recent graduates, and when switching careers, or when moving up the ladder into
-% a different roll (i.e. management).
-\newcommand*{\careerobjective}[2]{%
-    \section{Career Objective}% A quick spiel going over my goals/objectives for the next 5 years.
-    \raggedright Electronics Engineering and Computer Science student seeking \ifstrempty{#1}{{\bfseries\emph{<a generic job description, e.g. grad based embedded firmware engineering position>}}}{#1}. \ifstrempty{#2}{{\bfseries\emph{<generic short list of relevant skills, 3 to 4. e.g. embedded software and VHDL design experience, as well as analytical and problem solving skills>}}}{#2}
+% a different roll (i.e. management). Should only be 3 to 4 sentences long and no more than 5
+% lines.
+\newcommand*{\careerobjective}[1]{%
+    \section{Career Objective}
+    \raggedright #1
 }
 
 % Focuses on experience and knowledge that has already been gained from the same, or similar
@@ -137,7 +138,7 @@
             {Try declaring your referee with the \alcvnewreferee command}%
         }%
     }
-    \section{Referees}
+    \section{References}
     \docsvlist{#1}
 }
 
