@@ -1,0 +1,63 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*2\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thankyou for considering my credentials.
+
+%% Code readability vs comments question.
+% I personally feel that code readability and commenting are orthogonal in what they achieve.
+%
+% Good code readability and structure significantly reduces cognitive load when delving into projects where the developer may already be familiar with the code-base, or when the developer has reasonable context behind the code's motive.
+%
+% However comments allow one to give more context to a code-base and is able to express key concepts that may not be easy to convey with readable code. Additionally, comments are advantageous where the code may be easily readable, yet cryptic in function.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{%
+        Emesent            \\
+        1 Technology Court \\
+        Pullenvale, QLD 4069}
+        \opening{To whom it may concern,}
+        I am writing to apply for the position of Embedded~Software~Engineer at Relectrify, as advertised on LinkedIn. I am a final year student of an electronic engineering and computer science double bachelors degree at Swinburne University of Technology. I believe that the knowledge I have gained during my time at Swinburne, along with prior experience from a systems administration role, make me an ideal candidate for this opportunity.
+
+        Through past employments and pursuit of my degree at Swinburne, I have acquired a number of relevant skills and experiences. I have experience with embedded platforms such as Freescale's Cortex M4 microcontrollers and FPGA systems such as Xilinx's Zynq-7000 with integrated ARM Cortex A9 CPU running Amazon's FreeRTOS. Through the electronics component of my degree, I have also become well acquainted with both digital and analog circuit design, with particular focus on signal processing, as well as the use of related tools such as oscilloscopes, logic analysers, MATLAB/Simulink simulations and SPICE simulations.
+
+        Given the opportunity, I would be thrilled to be a part of the Relectrify team, and will welcome a chance to provide further insight into my personal attributes and technical abilities. 
+
+        Thank you for having the time to consider my credentials for this position, I look forward to hearing from you in due course.
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}
