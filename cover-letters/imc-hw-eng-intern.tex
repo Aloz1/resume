@@ -1,0 +1,60 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*2\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thankyou for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+
+    \begin{letter}{%
+        IMC Trading \\
+        Grosvenor Place, Level 42 \\
+        225 George Street \\
+        Sydney, NSW 2000}
+        \opening{To whom it may concern,}
+        \raggedbottom
+        I am writing to apply for the position of Summer~Hardware~Engineering~Intern at IMC Australia, as advertised on the careers web portal of Swinburne University of Technology. I am a penultimate year student of an electronic engineering and computer science double degree with honours at Swinburne. I believe that my degree, coupled with experience from past workplaces, would make me an ideal candidate for the position.
+
+        During my studies at Swinburne, I have acquired a well rounded collection of technical skills a breadth breadth topics, many of which align well with opportunity. I have undertaken a number of units which have specifically focused on VHDL and FPGA software development. Additionally, due to the computer science component of my degree, I have had exposure to several other programming languages, including C and C++, Python, Pascal, Java and C\#.
+
+        Whilst university has allowed me to diversify my technical abilities, my greatest strength is the analytical skills I have developed during my time at KTI. On numerous occasions, I would be tasked with delving into legacy systems, still in operation in a production environment, to quickly identify and resolve problematic bugs. Daily duties of the company involved management of internal software services and development of their in house accounting package and laser engraving utility.
+
+        It would be a pleasure to learn more about the development and usage of technology within IMC, and would welcome the chance to provide further insight into my unique skill-set and attributes.
+
+        Thank you for having the time to consider my application, I look forward to hearing from you in due course.
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}
