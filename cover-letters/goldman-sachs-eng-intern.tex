@@ -1,0 +1,60 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*2\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thankyou for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+
+    \begin{letter}{%
+        Goldman Sachs Australia Ltd \\
+        Level 46, Govenor Phillip Tower \\
+        1 Farrer Place \\
+        Sydney, NSW 2000}
+        \opening{To whom it may concern,}
+        \raggedbottom
+        I am writing to apply for a position in the Summer~Analyst~Internship~Program at Goldman~Sachs~Australia, as advertised on LinkedIn. I am a penultimate year student of an electronic engineering and computer science double degree with honours at Swinburne. I believe that my degree, coupled with extracurricular and past work experiences, would make me an ideal candidate for this position.
+
+        While pursuing my degree at Swinburne, I have developed skills and practical experience in a range of different topics, from IoT programming and MVC web frameworks to resource-constrained embedded software development. Due to the engineering nature of my degree, and from past workplaces, I have also developed a strong problem solving skill-set. Through extracurricular opportunities in and out of Swinburne, I have gained exposure to cyber security related topics. As a member of the Swinburne Cyber Security Club, I have met several professionals, and have participated in the national CySCA competition multiple times. Through my own exploration, I have also participated in several smaller CTFs including SquareCTF, CSAW and Cybar. My engineering degree has also given me exposure to low level programming in C and assembly, which has been advantageous for exploitation and reverse engineering challenges within CTF competitions.
+
+        My time as a Systems Administrator at KTI Pty Ltd has also been valuable, allowing me to deepen my knowledge of Networking and the IP stack, as well as giving me industry experience in the management of cloud based infrastructure. In this workplace, it was my responsibility to manage several Xen Server machines and their VMs, as well as the numerous services running within each VM.
+
+        It would be a pleasure to learn more about Goldman Sachs' needs, and would welcome the chance to provide further insight into my attributes and abilities.
+
+        Thank you for having the time to consider my application, I look forward to hearing from you in due course.
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}
