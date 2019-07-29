@@ -5,8 +5,9 @@ RESUME_DIR = resumes/
 AUX_DIR = build/
 OUT_DIR = pdf/
 
+TOUCH := touch
 LATEXMK := latexmk
-LATEXMK_OPTS := -cd- -lualatex -synctex=1 -outdir=$(AUX_DIR)
+LATEXMK_OPTS := -cd- -g -lualatex -synctex=1 -outdir=$(AUX_DIR)
 
 LETTER_TEX = $(wildcard $(LETTER_DIR)*.tex)
 RESUME_TEX = $(wildcard $(RESUME_DIR)*.tex)
