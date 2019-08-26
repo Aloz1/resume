@@ -14,6 +14,7 @@
 
 \providecommand\BKM@style@alstyle{}
 \RequirePackage{bookmark}
+\RequirePackage{fontspec}
 
 % Setup hyperlink style
 \hypersetup{colorlinks=true,urlcolor=RoyalBlue3,allbordercolors={0 0 0},pdfborderstyle={/S/U/W 1}}
@@ -22,8 +23,11 @@
 \setkomafont{pagehead}{\normalfont\LARGE}
 
 % Setup page headers and footers
-\KOMAoptions{areasetadvanced=true, titlepage=true, headheight=22pt, headinclude=true}
-\areaset{18.46cm}{22.6cm}
+\KOMAoptions{areasetadvanced=true, titlepage=true, headheight=1.773cm, headinclude=true}
+\areaset{18.46cm}{25.6cm}
+\setlength{\hintscolwidth}{.14\textwidth}
+\setlength{\sepcolwidth}{1.25em}
+\setlength{\afterquotevspace}{-0.1em}
 
 \clearscrheadfoot
 \ihead{\firstname~\familyname}
@@ -53,7 +57,7 @@
     }
     \afterpage{\maketitlepage@clearhead@restore}
     \textheight=\dimexpr \textheight+\headheight+\headsep
-    \headheight=0pt
+    \headheight=-0.5em
     \headsep=0pt
     \@colht=\textheight
     \@colroom=\textheight

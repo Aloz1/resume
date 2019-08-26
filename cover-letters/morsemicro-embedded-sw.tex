@@ -1,0 +1,94 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*4\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thank-you for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{%
+        Morse Micro PTY LTD \\
+        Level 2               \\
+        63 Foveaux Street     \\
+        Surry Hills, NSW 2010}
+        %\opening{Dear Ms. Chan,}
+        \opening{To whom it may concern,}
+        \raggedbottom
+        I am writing to apply for the position of Embedded~Software~Engineer at Morse~Micro~PTY~LTD, as advertised on LinkedIn and your jobs board. I am an engineering student at Swinburne University of Technology nearing the completion of an electronic engineering and computer science double degree. I believe that I would be a good candidate for the position due to my education and past work experience, as well as numerous projects I have undertaken in my own time.
+
+        Through the pursuit of my degree, I have hands on experience with analog and digital circuit design as well as embedded programming using ARM cortex M0 and M4 microcontrollers, and FreeRTOS application development using Xilinx Zynq FPGAs. I have also developed several simple VHDL based hardware designs including an AXI4 based PS1 controller interface. A number of assignments have also given me some simple signal processing experience with Matlab and Simulink. Through some small personal projects, I have also had some experience with SPI and I2C communications interfaces.
+
+        Due to being a double degree, I also have exposure to modern software development tools and practices. I have used Git, both on its own and with hosting platforms such as GitLab and GitHub. I also have some exposure to Travis CI and GitLab CI.
+        
+        From my past position as a systems administrator at KTI~PTY~LTD, I've had the opportunity to develop several utilities using Python and have experience with network debugging tools such as Wireshark, tcpdump and netcat. I am also familiar with a range of different Linux platforms and environments, having set-up and maintained several Linux desktop and server environments. I've also had experience with some embedded platforms including OpenWRT and NetComm's Bovine SDK.
+
+        Given the opportunity, I would be thrilled at the prospect of working along side Morse Micro's highly skilled team, and learning from some of the industry's best engineers. Thank you for having the time to consider my credentials and application, I look forward to hearing from you in due course.
+
+        % Responsibilities
+        % - Implementing, testing, debuging firmware.
+        % - Device driver support for Linux and other RTOS
+        % - Optimizations for performance, footprint, power consumption
+        % - Python scripts for testing and other tasks
+        % - Overall technical experties
+        % - Growing, and making other team members grow.
+
+        % Essential skills
+        % - BSc in Electrical / Electronics / Computer science
+        % - Good understanding of C language and usage in embedded environments
+        % - Desire to write good code for real world problems
+        % - Excellent verbal and written communication skills
+        % - Strong analytical and problem-solving skills
+        % - Hands on, practical attitude
+
+        % Desired skills (70%)
+        % - Strong foundation in theoretical concepts of Operating System
+        % - Good understanding of Data Structures and Algorithms
+        % - Basic understanding of Electronic Circuit theory
+        % - Knowledge of Python for tools and scripts
+        % - Know how of software version control and issue tracking
+        % - Experience working on GNU/Linux, GCC, Make dev environment
+
+        % Bonus skills
+        % - Experience with IoT/Networking applications, including use of wireshark for test/debug
+        % - Experience with various hardware interfacing busses, like SDIO, SPI and I2C
+        % - Experience in using static analysis and automated testing tools
+        % - Familiar with Linux kernel development and Linux applications for embedded devices
+        % - Familiarity with software defined radio such as GNURadio
+        % - Familiarity with digital design languages such as VHDL, Verilog and SystemVerilog or IC design flows from Cadence or Synopsys
+        % Familiarity with Matlab
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}

@@ -18,12 +18,12 @@ RESUME_AUX = $(addprefix $(AUX_DIR), $(notdir $(RESUME_TEX:.tex=-resume.pdf)))
 LETTER_OUT = $(addprefix $(OUT_DIR), $(notdir $(LETTER_AUX)))
 RESUME_OUT = $(addprefix $(OUT_DIR), $(notdir $(RESUME_AUX)))
 
-$(OUT_DIR)%-letter.pdf :: $(LETTER_DIR)%.tex $(wildcard *.sty) $(wildcard tex/*.tex)
+$(OUT_DIR)%-letter.pdf :: $(LETTER_DIR)%.tex
 	$(LATEXMK) $(LATEXMK_OPTS) -jobname=$(notdir $(<:.tex=-letter)) $<
 	cp -f $(addprefix $(AUX_DIR), $(notdir $@)) $@
 
 
-$(OUT_DIR)%-resume.pdf :: $(RESUME_DIR)%.tex
+$(OUT_DIR)%-resume.pdf :: $(RESUME_DIR)%.tex $(wildcard *.sty) $(wildcard tex/*.tex)
 	$(LATEXMK) $(LATEXMK_OPTS) -jobname=$(notdir $(<:.tex=-resume)) $<
 	cp -f $(addprefix $(AUX_DIR), $(notdir $@)) $@
 
