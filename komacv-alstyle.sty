@@ -126,7 +126,15 @@
 %%% Referees %%%
 \newcommand*\alcvnewreferee[7]{%
     \makeatletter
-    \csdef{alcvref@#1}{\cventry{#2}{#3}{#4}{#5}{#6}{#7}}
+    \csdef{alcvref@#1}{%
+        \cventry{#2}{#3}{#4}{#5}{%
+            \ifx&#6&%
+            \else{\newline{}\begin{minipage}[t]{\linewidth}%
+                \small#6%
+                \end{minipage}%
+            }\fi%
+        }{#7}
+    }
     \edef\alcvref@all{\ifcsdef{alcvref@all}{\alcvref@all,}{}#1}
     \makeatother
 }
@@ -147,7 +155,10 @@
 }
 
 \newcommand*\alcvallreferees{\expandafter\alcvreferees\expandafter{\alcvref@all}}
-
+\newcommand*\alcvnoreferees{%
+    \section{References}
+    \cvitem{}{\underline{\textit{Available upon request}}}
+}
 
 %%% Categorised sections %%%
 \newcounter{@item@count}

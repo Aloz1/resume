@@ -1,7 +1,7 @@
 \newcommand*\showaccomplishments{
     \section{Extracurricular}
     \cvitem{2020 - Present}{Assistant Scout Leader\hfill{\usefontofkomafont{commentfont} 8th Knox Scouts}}
-    \cvitem{2015 - Present}{Various CTFs\hfill{\usefontofkomafont{commentfont} SquareCTF, Over The Wire, Cybar, PicoCTF, CSAW}}
+    \cvitem{2015 - Present}{Various CTFs\hfill{\usefontofkomafont{commentfont} SquareCTF, OverTheWire, Cybar, PicoCTF, CSAW}}
     \cvitem{2017, 2018}{Cyber Security Challenge Australia (CySCA)}
     \cvitem{2012}{YMCA UNO-Y Youth Leadership Program}
     \cvitem{2011, 2012}{YMCA Youth Parliament Victoria}
@@ -43,7 +43,17 @@
             \item Verified using cocotb and vunit.
         \end{compactitem}
     }
-    \cventry{2019}{Computer vision based bus passenger tracker}{}{}{}{
+    \cventry{2019}{Exoskeleton for rehabilitation}{Engineering Capstone Project}{}{}{
+        Proof of concept EMG controlled exoskeleton to aid physically impaired patients.
+        \vskip .5em
+        \begin{compactitem}
+            \item EMG signal capture with the OpenBCI platform.
+            \item Raspberry Pi and SciPi for signal processing.
+            \item MATLAB for filter design.
+            \item Arduino for servo motor control.
+        \end{compactitem}
+    }\vskip .5em
+    \cventry{2019}{Computer vision bus passenger tracker}{Software Capstone Project}{}{}{
         Prototype software for tracking passengers as they enter and leave a bus.
         \vskip .5em
         \begin{compactitem}
@@ -57,10 +67,10 @@
         A proof of concept IoT vehicle tracking system with wireless BLE nodes and cloud data storage.
         \vskip .5em
         \begin{compactitem}
-            \item Includes an ESP32 based GPS node and an Arduino based IMU node with BLE GATT communications to an edge device (raspberry pi).
+            \item GPS enabled ESP32 IoT node, Arduino based IMU IoT node. BLE GATT communications to an Linux based edge device.
             \item Edge device utilises Redis data caching, for intermittent internet connectivity.
             \item Communications between edge and cloud is via MQTT, with data stored in DynamoDB.
-            \item Firmware for nodes written in C++, edge services written in Python, web client uses a combination of Python, javascript and HTML, the report is written in \LaTeX.
+            \item Node firmware written in C++, edge services in Python, web client in JavaScript + HTML.
         \end{compactitem}
     }\vskip .5em
     \cventry{2018}{Zynq Space Invaders}{}{}{\hfill\httpslink{github.com/Aloz1/Zybo-SpaceInvaders}}{

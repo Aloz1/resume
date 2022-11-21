@@ -1,0 +1,62 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*4\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thank-you for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{%
+        Aleisha Thomas        \\
+        BAE Systems Australia \\
+        %40 River Boulevard    \\
+        %Richmond, VIC 3121}
+        1 Taranaki Road       \\
+        Edinburgh, SA 5111}
+        \opening{Dear Ms. Thomas,}
+        \raggedbottom
+        I am writing to apply for the position of Software~Engineering~Intern at BAE Systems. I have the pleasure of being acquainted with a current software engineering graduate for BAE systems in Richmond, Daniel Della-Gatta. Some months ago, Mr. Della-Gatta informed me of, and encouraged me to apply for an internship position at BAE systems once applications have opened.
+
+        I am an engineering student at Swinburne University of Technology in my penultimate year of an electronic engineering and computer science double degree. I believe my education coupled with past work experience and personal projects make me good candidate for this internship position.
+
+        Through my degree, I've had a broad amount of experience with low level languages and embedded programming. I have written embedded C/C++ for ATMega and ARM Cortex microcontrollers, as well as developed software for FreeRTOS and embedded Linux environments. Additionally, I have done FPGA based hardware design with VHDL, and have some practice with assembly level programming. My degree has also given me exposure to higher level environments and platforms including frontend and backend web development, desktop application development with C++, C\# and Java, Android application development, and database programming using SQL.
+
+        I have also previously worked as a Systems Administrator at KTI~Pty~Ltd where my responsibilities included ensuring continued operation of several internal systems and applications. Daily tasks included provisioning and setup of VM environments, maintenance and development of the internal intranet and ERP software, and network infrastructure upgrades. Working at KTI has prepared me to think quickly during crucial system fall-overs, how to think laterally to solve complex problems and how to work both autonomously and collaboratively within a team.
+
+        Given the opportunity, I would be thrilled to join BAEs internship program, not only to gain real life engineering experience, but also to help contribute towards Australia's defence industry in one of the country's largest defence contractors. I appreciate you having the time to consider my credentials and look forward to hearing from you in due course.
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[
+    backaddress=false,
+    foldmarks=false,
+    fromalign=right,
+    fromrule,
+    fromphone,
+    fromemail,
+    parskip=half,
+    refline=nodate
+]{scrlttr2}
+
+\usepackage{xcolor}
+
+\areaset{\dimexpr\textwidth+5em\relax}{\dimexpr\textheight+\baselineskip*4\relax}
+
+% First paragraph:
+%   Which job I'm applying for, the company name, and where I found the advert.
+% Second paragraph:
+%   Why I'm interested in the position, company, products, services. Stress what I can do for
+%   the employer. Recent graduate, explain how academic background makes me a solid candidate
+%   for the position. Practical work experience should also be emphasized, specific achievements
+%   etc. Not just a repeat of the same information as what will be found in the resume. Purpose
+%   is to strengthen the resume with extra examples.
+% Last paragraph:
+%   Request a personal interview and indicate flexibility, time, and place. Repeat phone number.
+%   End with a thank-you for considering my credentials.
+
+\begin{document}
+    \input{tex/letter-head.tex}
+    \setkomavar{location}{\raggedleft\today}
+
+    \addtoplength{firstheadvpos}{1em}
+    \addtoplength{firstheadwidth}{2em}
+    \addtoplength{toaddrhpos}{-1em}
+    \setplength{sigbeforevskip}{0pt}
+    \setplength{locvpos}{\useplength{toaddrvpos}+3.2em}
+    \addtoplength{refvpos}{-3em}
+
+    \renewcommand*\raggedsignature{\raggedright}
+
+    \begin{letter}{%
+        Nathan Kelly         \\
+        Downer Sydney        \\
+        39 Delhi Road        \\
+        North Ryde, NSW 2113}
+        \opening{Dear Mr. Kelly,}
+        \raggedbottom
+        I am writing to apply for the position of Cyber~Security~Graduate at Downer. I am a student of Swinburne University of technology nearing the completion of an electronic engineering and computer science double degree, with some prior experience as a systems administrator at Kinetic Technology International. I was informed of the position by Mr Jonathan Hack at the recent Reesby jobs exhibition in Melbourne, who appeared enthusiastic that I would make a good candidate for this position.
+
+        Whilst not strictly focused on cyber security, my degree has given me a solid technical foundation in areas including digital electronics, bare metal programming on ATMega and ARM Cortex microcontrollers, FreeRTOS and embedded Linux software development, IoT development, C++, C\# and Java applications development and full stack web development. Additionally, I have been a member of the Swinburne Cyber Security Club, for most of my time at Swinburne, through which I have participated in a number of CTF events and security related talks.
+        
+        My role at KTI~Pty~Ltd as a systems administrator included responsibilities such as setup and maintenance of desktop machines and VM environments, development and maintenance of internal software, maintenance and upgrades of network infrastructure, management of internal databases and installation of a new firewall and internet failover system. Along with these duties, working for KTI allowed me to develop my problem solving and lateral thinking abilities as well as experience working both autonomously and collaboratively within a team.
+
+        Given the opportunity, I would be thrilled to join one of Downer's graduate programs. I appreciate you having the time to consider my credentials and look forward to hearing from you in due course.
+
+        \closing{Sincerely,}
+    \end{letter}
+\end{document}
